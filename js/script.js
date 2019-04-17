@@ -3,17 +3,7 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
-
-
-/*** 
-  Create the array of quote objects and name it `quotes`.
-  Add at least five quote objects to the `quotes` array.
-  Give each quote object a `quote` and `source` property.
-  Add the `citation` property to at least one object in the array.
-  Add the `year` property to at least one object in the array.
-  Use console.log() to log your array of quotes to the console.
-***/
+//Array of objects that include the quotes
 const quotes = 
 [
   //quote #0
@@ -55,15 +45,11 @@ const quotes =
 
 
 
-/***
-  Create the `getRandomQuote` function to:
-   - Create a variable to store a random number 
-   - Cse the random number to `return` a random quote object from the `quotes` array.
-***/
+//Returns a random object/quote object from the quotes array
 let getRandomQuote = () =>
 {
   let randomNumber = Math.floor(Math.random() * 5);
-  return randomNumber;
+  return quotes[randomNumber];
 } 
 
 
@@ -84,18 +70,18 @@ let getRandomQuote = () =>
 let printQuote = () => 
 {
 
-  let randomNumber = getRandomQuote();
+  let randomQuote = getRandomQuote();
   let html = '';
   let counter = 0;
 //variables assigned to values from the array of objects : QUOTES[] -------------------------
-  let quote = quotes[randomNumber].quote;
-  let source = quotes[randomNumber].source;
-  let citation = quotes[randomNumber].citation;
-  let year = quotes[randomNumber].year; 
+  let quote = randomQuote.quote;
+  let source = randomQuote.source;
+  let citation = randomQuote.citation;
+  let year = randomQuote.year; 
 
   while(counter != 1){
     //recording how many times the button was clicked (was just interested)
-    console.log('Number of button clicks -- ' + quotes[randomNumber]);
+    console.log('Number of button clicks -- ' + randomQuote);
 
     document.getElementById('quote').innerHTML = quote;
     document.getElementById('source').innerHTML = source;
@@ -104,10 +90,7 @@ let printQuote = () =>
     
     counter++;
   }
-  //----------
 
-  //document.write(html);
-  
 }
 
 
