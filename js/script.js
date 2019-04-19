@@ -10,36 +10,33 @@ const quotes =
   {
     quote: 'Life is about making an impact, not making an income.',
     source: 'Kevin Kruse',
-    citation: 'Twitter',
-    year: 2013
+    citation: 'twitter'
   },
   //quote #1
   {
     quote: 'Whatever the mind of man can conceive and believe, it can achieve.',
     source: 'Napoleon Hill',
-    citation: 'BrainyQuote',
-    year: 2000
+    citation: 'brainyquotes.com'
+
   },
   //quote #2
   {
     quote: 'Strive not to be a success, but rather to be of value.',
     source: 'Albert Einstein',
-    citation: 'BrainyQuote.com',
-    year: 2019
+    citation: 'brainyquotes.com'
+
   },
   //quote #3
   {
     quote: 'Two roads diverged in a wood, and I—I took the one less traveled by, And that has made all the difference.',
     source: 'Robert Frost',
-    citation: 'BrainyQuote.com',
-    year: 2000
+    citation: 'brainyquotes.com'
   },
   //quote #4
   {
     quote: 'I attribute my success to this: I never gave or took any excuse.',
     source: 'Florence Nightingale',
-    citation: 'BrainyQuote.com',
-    year: 2000
+    citation: 'brainyquotes.com'
   }
 ];
 
@@ -67,29 +64,49 @@ let getRandomQuote = () =>
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
 
+
 let printQuote = () => 
 {
-
   let randomQuote = getRandomQuote();
+
+
+
+  /*
+
+THIS IS WHAT THE INSTRUCTIONS REQUIRE US TO DO
+
   let html = '';
-  let counter = 0;
-//variables assigned to values from the array of objects : QUOTES[] -------------------------
+
+  html += '<p class = "quote">' + randomQuote.quote;
+  html += '<p class = "source">' + randomQuote.source;
+  html += '<p class = "tag"> #' + randomQuote.tag ;
+
+  if(randomQuote.citation){
+    html += '<span class = "citation">' + randomQuote.citation + '</span>';
+  }
+
+  html += '</p>';
+  
+
+
+  document.getElementById("quote-box").innerHTML = html;
+  */
+
+//INSTEAD THIS IS WHAT I MEANT 
+
   let quote = randomQuote.quote;
   let source = randomQuote.source;
   let citation = randomQuote.citation;
-  let year = randomQuote.year; 
 
-  while(counter != 1){
-    //recording how many times the button was clicked (was just interested)
-    console.log('Number of button clicks -- ' + randomQuote);
+  document.getElementById("quote").innerHTML = quote;
+  document.getElementById("source").innerHTML = source;
+  /*
+  this below line of code gives me an error which i also need help with : Uncaught TypeError: Cannot set property 'innerHTML' of null
+  at HTMLButtonElement.printQuote 
+    */
+  document.getElementById("citation").innerHTML = citation;
 
-    document.getElementById('quote').innerHTML = quote;
-    document.getElementById('source').innerHTML = source;
-    document.getElementById('citation').innerHTML = citation;
-    document.getElementById('year').innerHTML = year;
-    
-    counter++;
-  }
+
 
 }
 
@@ -102,5 +119,4 @@ let printQuote = () =>
 ***/
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-
+  
